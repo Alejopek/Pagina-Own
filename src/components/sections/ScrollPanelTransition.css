@@ -1,0 +1,106 @@
+.scroll-panel-transition {
+  position: relative;
+  background: var(--color-bg);
+  isolation: isolate;
+}
+
+.scroll-panel-transition__background {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: #e3e2ec;
+  color: #060608;
+  --color-bg: #d7d9de;
+  --color-bg-card: rgba(255, 255, 255, 0.42);
+  --color-bg-card-2: rgba(255, 255, 255, 0.58);
+  --color-border: rgba(6, 6, 8, 0.14);
+  --color-border-glow: rgba(56, 189, 248, 0.34);
+  --color-text: #060608;
+  --color-text-mid: rgba(6, 6, 8, 0.72);
+  --color-text-dim: rgba(6, 6, 8, 0.42);
+}
+
+.scroll-panel-transition__background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(6, 6, 8, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 6, 8, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at 50% 45%, black 0%, transparent 78%);
+}
+
+.scroll-panel-transition__background-track {
+  position: relative;
+  z-index: 1;
+  min-height: 200svh;
+  will-change: transform;
+}
+
+.scroll-panel-transition__background-panel {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-panel-transition__background-panel--skills {
+  align-items: flex-start;
+  padding-top: clamp(60px, 8vw, 100px);
+}
+
+.scroll-panel-transition__background-panel > section {
+  width: 100%;
+}
+
+.scroll-panel-transition__hero {
+  position: relative;
+  z-index: 20;
+  margin-top: -100svh;
+  min-height: 100svh;
+  background: var(--color-bg);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+}
+
+.scroll-panel-transition__spacer {
+  position: relative;
+  z-index: 10;
+  height: 180svh;
+  pointer-events: none;
+}
+
+.scroll-panel-transition__anchor {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.scroll-panel-transition__anchor--about {
+  top: 0;
+}
+
+.scroll-panel-transition__anchor--skills {
+  top: 54%;
+}
+
+.scroll-panel-transition__work {
+  position: relative;
+  z-index: 30;
+  background: var(--color-bg);
+  box-shadow: 0 -24px 80px rgba(0, 0, 0, 0.42);
+}
+
+@media (max-width: 768px) {
+  .scroll-panel-transition__spacer {
+    height: 210svh;
+  }
+
+  .scroll-panel-transition__anchor--skills {
+    top: 58%;
+  }
+}

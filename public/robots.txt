@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pagina-own.vercel.app/
